@@ -1,6 +1,6 @@
 # Sneaker Shoe Web Project
 
-This is a web-based project for managing sneaker shoes. The project includes functionalities to manage products (sneakers) and users. It uses a MySQL database for data storage and retrieval and implements a Node.js backend with Express.js.
+This is a web-based project for managing sneaker shoes. The project includes functionalities to manage products (sneakers) and users. It uses a MySQL database for data storage and retrieval and implements a Node.js backend with Express.js. The project also follows the MVC (Model-View-Controller) architecture for organizing code and implementing CRUD (Create, Read, Update, Delete) operations effectively.
 
 ## Project Structure
 
@@ -24,9 +24,17 @@ webproject/
 │   ├── productRoutes.js
 ├── views/
 │   ├── index/
+│   │   ├── index.ejs
 │   ├── partials/
+│   │   ├── footer.ejs
+│   │   ├── header.ejs
 │   ├── product/
+│   │   ├── create.ejs
+│   │   ├── edit.ejs
+│   │   ├── index.ejs
+│   │   ├── show.ejs
 │   ├── user/
+│   │   ├── login.ejs
 ├── .env.sample
 ├── .gitignore
 ├── package.json
@@ -40,7 +48,11 @@ webproject/
 - **models/**: Contains database models for products and users.
 - **public/**: Static files such as CSS and images.
 - **routes/**: Routing logic for handling application endpoints.
-- **views/**: EJS templates for rendering the front-end.
+- **views/**: EJS templates for rendering the front-end. Subdirectories include:
+  - **index/**: Contains the main `index.ejs` file.
+  - **partials/**: Reusable components like `footer.ejs` and `header.ejs`.
+  - **product/**: Templates for managing products (`create.ejs`, `edit.ejs`, `index.ejs`, `show.ejs`).
+  - **user/**: Templates for user-related actions like `login.ejs`.
 - **server.js**: Entry point of the Node.js application.
 
 ---
@@ -48,30 +60,46 @@ webproject/
 ## Features
 
 1. **Products Management**:
+
    - Add, view, update, and delete sneaker products.
    - Products are stored in the `product` table within the `gproducts` database.
 
 2. **User Management**:
+
    - Register and manage user accounts.
    - Users are stored in the `users` table within the `gproducts` database.
 
 3. **Dynamic Web Pages**:
+
    - EJS templates for rendering dynamic content.
 
 4. **Database Integration**:
+
    - MySQL database connectivity for storing and retrieving product and user data.
 
 5. **Flash Messages**:
+
    - Inform users of actions (success, error, etc.) through flash messages.
 
 6. **Image Upload**:
+
    - Allows uploading images for products using Multer.
 
 7. **Delete Alerts**:
+
    - Confirmation alerts for deleting records.
 
 8. **PHP Integration**:
+
    - PHP is used to manage and interact with the MySQL database via MAMP for database creation and testing.
+
+9. **MVC Architecture**:
+
+   - Implements a clear separation of concerns using the Model-View-Controller design pattern for better code organization.
+
+10. **CRUD Operations**:
+
+    - Provides complete CRUD functionality for managing products and users.
 
 ---
 
@@ -87,17 +115,20 @@ webproject/
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <repository-url>
    cd webproject
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Set up the environment variables:
+
    - Copy `.env.sample` to `.env` and update the following variables:
      ```env
      DB_HOST=localhost
@@ -107,6 +138,7 @@ webproject/
      ```
 
 4. Start the application:
+
    ```bash
    node server.js
    ```
@@ -118,6 +150,7 @@ webproject/
 ## Database Schema
 
 ### Products Table (`product`)
+
 - **Columns**:
   - `id`: Primary key.
   - `name`: Name of the sneaker.
@@ -126,6 +159,7 @@ webproject/
   - `image`: Path to the product image.
 
 ### Users Table (`users`)
+
 - **Columns**:
   - `id`: Primary key.
   - `username`: Username of the user.
